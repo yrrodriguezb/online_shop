@@ -5,7 +5,7 @@
 <div class="columns is-mobile p-3">
   <div class="column is-3">
     <div class="box">
-      <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/shop/image_not_avalaiable.png' %}{% endif %}">
+      <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/shop/image_not_avalaible.png' %}{% endif %}">
     </div>
   </div>
   <div class="column is-9">
@@ -14,7 +14,22 @@
       Categorie
     <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a>
     </h2>
-    <p class="price">Price: ${{ product.price }}</p>
+    <p class="price my-2"><span class="has-text-weight-semibold">Price:</span> ${{ product.price }}</p>
+    <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+      {{ cart_product_form.override }}
+      {% csrf_token %}
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <label class="label">{{ cart_product_form.quantity.label_tag }}</label>
+              <div class="select is-rounded">{{ cart_product_form.quantity }}</div>
+              <input type="submit" class="button is-primary is-rounded" value="Add to cart">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 <div class="columns is-moblie p-3">

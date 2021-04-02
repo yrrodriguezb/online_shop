@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Your shopping cart{% endblock %}
+{% block content %}
+<h1 class="subtitle has-text-weight-medium">Your shopping cart</h1>
+
+<div class="table-container">
+  <table class="table is-hoverable">
+    <thead>
+      <tr>
+        <!-- <th>Image</th> -->
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+      {% with product=item.product %}
+      <tr>
+        <!-- <td>
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/shop/image_not_avalaible.png' %}{% endif %}">
+          </a>
+        </td> -->
+        <td>{{ product.name }}</td>
+        <td>
+          <form action="{% url "cart:cart_add" product.id %}" method="post">
+            <div class="select is-rounded is-small">{{ item.update_quantity_form.quantity }}</div>
+            {{ item.update_quantity_form.override }}
+            <input type="submit" class="button is-primary is-light is-rounded is-small" value="Update">
+            {% csrf_token %}
+            </form>
+        </td>
+        <td>
+          <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+            <input type="submit" class="button is-primary is-light is-small is-rounded" value="Remove">
+            {% csrf_token %}
+          </form>
+        </td>
+        <td>${{ item.price }}</td>
+        <td>${{ item.total_price }}</td>
+      </tr>
+      {% endwith %}
+      {% endfor %}
+      <tr class="has-background-info-light">
+        <td>Total</td>
+        <td colspan="3"></td>
+        <td>${{ cart.get_total_price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="my-6">
+  <a href="{% url 'shop:product_list' %}" class="button is-primary">Continue shopping</a>
+  <a href="#" class="button">Checkout</a>
+</p>
+{% endblock %}
