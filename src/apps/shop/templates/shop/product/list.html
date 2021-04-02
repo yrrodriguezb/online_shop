@@ -1,1 +1,48 @@
-<h1>Product List</h1>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Product List{% endblock %}
+{% block content %}
+<div class="columns is-mobile">
+  <div class="column is-3 ">
+    <aside class="menu is-hidden-mobile">
+        <p class="menu-label">
+            Categories
+        </p>
+        <ul class="menu-list">
+            <li>
+              <a href="{% url 'shop:product_list' %}" {% if not category %}class="is-active has-background-primary"{% endif %}>All</a>
+            </li>
+            {% for c in categories %}
+            <li>
+              <a href="{{ c.get_absolute_url }}" {% if category.slug == c.slug %}class="is-active has-background-primary"{% endif %}>{{ c.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+  </div>
+  <div class="column is-9">
+    <div class="container">
+      <h1 class="subtitle has-text-weight-medium">{% if category %}Category - {{ category.name }}{% else %}Products{% endif %}</h1>
+
+      <div class="columns is-multiline">
+      {% for product in products %}
+        <div class="card card-normalize">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/shop/image_not_avalaible.png' %}{% endif %}">
+            </figure>
+          </div>
+          <div class="card-content">   
+            <div class="content">
+              <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+              <br>
+              Price:  ${{ product.price }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
