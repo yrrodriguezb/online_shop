@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h1 class="subtitle has-text-weight-medium">Checkout</h1>
+
+
+<div class="columns">
+  <div class="column is-5">
+    <form method="post" class="order-form">
+      {% csrf_token %}
+      <div class="field">
+        <label class="label">{{ form.first_name.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.first_name.name }}" class="input" type="text" maxlength="50" placeholder="First name" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">{{ form.last_name.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.last_name.name }}" class="input" type="text" maxlength="50" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">{{ form.email.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.email.name }}" class="input" type="email" maxlength="250" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">{{ form.address.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.address.name }}" class="input" type="text" maxlength="250" placeholder="Address" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">{{ form.postal_code.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.postal_code.name }}" class="input" type="text" maxlength="20" placeholder="Address" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">{{ form.city.label_tag }}</label>
+        <div class="control">
+          <input name="{{ form.city.name }}" class="input" type="text" maxlength="100" placeholder="Address" required>
+        </div>
+      </div>
+
+      <p><input type="submit" class="button is-primary" value="Place order"></p>
+      
+      </form>
+  </div>
+  <div class="column is-7">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>Your order</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          {% for item in cart %}
+          <li>
+          {{ item.quantity }}x {{ item.product.name }}
+          <span>${{ item.total_price }}</span>
+          </li>
+          {% endfor %}
+          </ul>
+          <br />
+          <p class="has-text-weight-medium">Total: ${{ cart.get_total_price }}</p>
+      </div>
+    </article>
+  </div>
+</div>
+{% endblock %}

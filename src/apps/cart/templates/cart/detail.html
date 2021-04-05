@@ -56,6 +56,6 @@
 
 <p class="my-6">
   <a href="{% url 'shop:product_list' %}" class="button is-primary">Continue shopping</a>
-  <a href="#" class="button">Checkout</a>
+  <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
 </p>
 {% endblock %}
