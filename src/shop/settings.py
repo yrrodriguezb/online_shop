@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from os import environ
+import braintree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'apps.shop.apps.ShopConfig',
     'apps.cart.apps.CartConfig',
     'apps.orders.apps.OrdersConfig',
+    'apps.payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,13 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = environ.get("DJANGO_EMAIL_HOST_USER", None)
 EMAIL_HOST_PASSWORD = environ.get("DJANGO_EMAIL_HOST_PASSWORD", None)
 EMAIL_PORT = '2525'
+
+
+# Braintree
+
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    environ.get("BRAINTREE_MERCHANT_ID", None),
+    environ.get("BRAINTREE_PUBLIC_KEY", None),
+    environ.get("BRAINTREE_PRIVATE_KEY", None)
+)
