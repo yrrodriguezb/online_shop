@@ -58,6 +58,6 @@ class OrderAdmin(admin.ModelAdmin):
       'address', 'postal_code', 'city', 'paid',
       'created', 'updated', order_detail, order_pdf
     ]
-    #list_filter = ['paid', 'created', 'updated']
+    list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
