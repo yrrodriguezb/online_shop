@@ -1,0 +1,92 @@
+h1 {
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 40px;
+  margin-top: 80px;
+}
+h2 {
+  font-size: 25px;
+  font-weight: 100;
+  margin-top: 20px;
+}
+h3 {
+  margin-top: 30px;
+  font-size: 30px;
+}
+table {
+  width: 100%;
+  margin: auto;
+}
+table tr {
+  width: 100%;
+}
+table th, table td {
+  box-sizing: border-box;
+  padding: 5px 15px;
+}
+table thead th {
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+table tbody {
+  text-align: left;
+}
+table tbody th {
+  background: #eee;
+}
+.pay {
+  position: absolute;
+  min-width: 150px;
+  border: 3px solid transparent;
+  transform: rotate(-15deg);
+  left: 60%;
+  padding: 15px 45px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pay-paid {
+  border-color: #0A9E00;
+  color: #0A9E00;
+}
+.pay-pending {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+
+
+@media only screen and (max-width: 420px) {
+  body {
+    width: 100%;
+ }
+  section {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0px 20px;
+ }
+  table tr {
+    display: block;
+    width: 100%;
+ }
+  table thead {
+    display: none;
+ }
+  table tbody {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+ }
+  table tbody th {
+    list-style: none;
+ }
+  table tbody td {
+    margin-left: 40px;
+ }
+  table tbody th, table tbody td {
+    width: 100%;
+    display: list-item;
+ }
+}
+
