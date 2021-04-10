@@ -1,0 +1,18 @@
+<!-- START FOOTER -->
+<footer>
+  {% block cart %}
+  {% with total_items=cart|length %}
+  {% if total_items > 0 %}
+  <div class="notification is-link is-light mt-5">
+    <div class="container">
+      Your cart: 
+      <a href="{% url 'cart:cart_detail' %}">
+        {{ total_items }} item{{ total_items|pluralize }},${{ cart.get_total_price }}
+      </a>
+    </div>
+  </div>
+  {% endif %}
+  {% endwith %}
+  {% endblock %}
+</footer>
+<!-- END FOOTER -->
