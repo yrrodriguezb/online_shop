@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 22:45-0500\n"
-"PO-Revision-Date: 2021-04-11 02:37+0000\n"
+"POT-Creation-Date: 2021-04-11 13:45-0500\n"
+"PO-Revision-Date: 2021-04-11 18:34+0000\n"
 "Last-Translator: b'  <yeison@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,9 +19,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.6\n"
 
-#: apps/coupons/forms.py:6
+#: apps/coupons/apps.py:7 apps/coupons/forms.py:6 apps/coupons/models.py:14
 msgid "Coupon"
 msgstr "Cupón"
+
+#: apps/coupons/apps.py:8 apps/coupons/models.py:15
+msgid "Coupons"
+msgstr "Cupones"
+
+#: apps/payment/apps.py:7
+msgid "Payment"
+msgstr "pago"
+
+#: apps/payment/apps.py:8
+msgid "Payments"
+msgstr "pagos"
 
 #: apps/payment/urls.py:9
 msgid "process/"
@@ -35,6 +47,23 @@ msgstr "hecho/"
 msgid "canceled/"
 msgstr "cancelado/"
 
+#: apps/shop/models.py:15 apps/shop/templates/shop/product/list.html:26
+msgid "Category"
+msgstr "Categoría"
+
+#: apps/shop/models.py:16 apps/shop/templates/shop/product/list.html:10
+#: apps/templates/includes/layout/nav.html:22
+msgid "Categories"
+msgstr "Categorias"
+
+#: apps/shop/models.py:41
+msgid "Product"
+msgstr "Producto"
+
+#: apps/shop/models.py:42 apps/shop/templates/shop/product/list.html:26
+msgid "Products"
+msgstr "Productos"
+
 #: apps/shop/templates/shop/product/detail.html:28
 msgid "Add to cart"
 msgstr "Agregar al carrito"
@@ -43,24 +72,9 @@ msgstr "Agregar al carrito"
 msgid "Product List"
 msgstr "Lista de productos"
 
-#: apps/shop/templates/shop/product/list.html:10
-#: apps/templates/includes/layout/nav.html:22
-msgid "Categories"
-msgstr "Categorias"
-
 #: apps/shop/templates/shop/product/list.html:14
 msgid "All"
-msgstr ""
-
-#: apps/shop/templates/shop/product/list.html:26
-#, fuzzy
-#| msgid "Categories"
-msgid "Category"
-msgstr "Categorias"
-
-#: apps/shop/templates/shop/product/list.html:26
-msgid "Products"
-msgstr "Productos"
+msgstr "Todo"
 
 #: apps/shop/templates/shop/product/list.html:40
 msgid "Price"
@@ -103,11 +117,11 @@ msgstr "Idioma"
 msgid "Search"
 msgstr "Buscar"
 
-#: shop/settings.py:132
+#: shop/settings.py:133
 msgid "English"
 msgstr "Inglés"
 
-#: shop/settings.py:133
+#: shop/settings.py:134
 msgid "Spanish"
 msgstr "Español"
 
@@ -128,8 +142,6 @@ msgid "payment/"
 msgstr "pago/"
 
 #: shop/urls.py:29
-#, fuzzy
-#| msgid "Coupon"
 msgid "coupons/"
 msgstr "cupones/"
 

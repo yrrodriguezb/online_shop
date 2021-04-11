@@ -44,6 +44,7 @@ DJANGO_APPS = [
 
 APPS_THIRD_PARTY = [
     'rosetta',
+    'parler',
 ]
 
 APPS = [
@@ -144,6 +145,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)

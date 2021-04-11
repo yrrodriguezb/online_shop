@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 22:45-0500\n"
+"POT-Creation-Date: 2021-04-11 13:45-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/orders/apps.py:7 apps/orders/models.py:25
+msgid "Order"
+msgstr "Pedido"
+
+#: apps/orders/apps.py:8 apps/orders/models.py:26
+msgid "Orders"
+msgstr "Pedidos"
 
 #: apps/orders/models.py:10
 msgid "First name"
@@ -66,6 +74,10 @@ msgstr "Cupon"
 msgid "Discount"
 msgstr "descuento"
 
+#: apps/orders/models.py:43 apps/orders/models.py:44
+msgid "Order Items"
+msgstr "Encargar artículos"
+
 #: apps/orders/templates/orders/order/create.html:3
 #: apps/orders/templates/orders/order/create.html:5
 msgid "Checkout"
@@ -96,4 +108,4 @@ msgstr "Total"
 #, fuzzy
 #| msgid "Created"
 msgid "create/"
-msgstr "creado"
+msgstr "creado/"

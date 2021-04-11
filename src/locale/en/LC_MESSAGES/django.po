@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 22:45-0500\n"
+"POT-Creation-Date: 2021-04-11 13:45-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/coupons/forms.py:6
+#: apps/coupons/apps.py:7 apps/coupons/forms.py:6 apps/coupons/models.py:14
 msgid "Coupon"
+msgstr ""
+
+#: apps/coupons/apps.py:8 apps/coupons/models.py:15
+msgid "Coupons"
+msgstr ""
+
+#: apps/payment/apps.py:7
+msgid "Payment"
+msgstr ""
+
+#: apps/payment/apps.py:8
+msgid "Payments"
 msgstr ""
 
 #: apps/payment/urls.py:9
@@ -34,6 +46,23 @@ msgstr ""
 msgid "canceled/"
 msgstr ""
 
+#: apps/shop/models.py:15 apps/shop/templates/shop/product/list.html:26
+msgid "Category"
+msgstr ""
+
+#: apps/shop/models.py:16 apps/shop/templates/shop/product/list.html:10
+#: apps/templates/includes/layout/nav.html:22
+msgid "Categories"
+msgstr ""
+
+#: apps/shop/models.py:41
+msgid "Product"
+msgstr ""
+
+#: apps/shop/models.py:42 apps/shop/templates/shop/product/list.html:26
+msgid "Products"
+msgstr ""
+
 #: apps/shop/templates/shop/product/detail.html:28
 msgid "Add to cart"
 msgstr ""
@@ -42,21 +71,8 @@ msgstr ""
 msgid "Product List"
 msgstr ""
 
-#: apps/shop/templates/shop/product/list.html:10
-#: apps/templates/includes/layout/nav.html:22
-msgid "Categories"
-msgstr ""
-
 #: apps/shop/templates/shop/product/list.html:14
 msgid "All"
-msgstr ""
-
-#: apps/shop/templates/shop/product/list.html:26
-msgid "Category"
-msgstr ""
-
-#: apps/shop/templates/shop/product/list.html:26
-msgid "Products"
 msgstr ""
 
 #: apps/shop/templates/shop/product/list.html:40
@@ -96,11 +112,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: shop/settings.py:132
+#: shop/settings.py:133
 msgid "English"
 msgstr ""
 
-#: shop/settings.py:133
+#: shop/settings.py:134
 msgid "Spanish"
 msgstr ""
 

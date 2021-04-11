@@ -1,3 +1,11 @@
+#: apps/orders/apps.py:7 apps/orders/models.py:25
+msgid "Order"
+msgstr ""
+
+#: apps/orders/apps.py:8 apps/orders/models.py:26
+msgid "Orders"
+msgstr ""
+
 #: apps/orders/models.py:10
 msgid "First name"
 msgstr ""
@@ -44,6 +52,10 @@ msgstr ""
 
 #: apps/orders/models.py:21
 msgid "Discount"
+msgstr ""
+
+#: apps/orders/models.py:43 apps/orders/models.py:44
+msgid "Order Items"
 msgstr ""
 
 #: apps/orders/templates/orders/order/create.html:3
