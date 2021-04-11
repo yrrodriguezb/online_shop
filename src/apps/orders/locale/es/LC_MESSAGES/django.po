@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 21:25-0500\n"
+"POT-Creation-Date: 2021-04-10 22:45-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "Nombre"
 
 #: apps/orders/models.py:11
 msgid "Last name"
-msgstr "apellidos"
+msgstr "Apellidos"
 
 #: apps/orders/models.py:12
 msgid "E-mail"
@@ -32,7 +32,7 @@ msgstr "E-mail"
 
 #: apps/orders/models.py:13
 msgid "Address"
-msgstr "dirección"
+msgstr "Dirección"
 
 #: apps/orders/models.py:14
 msgid "Postal code"
@@ -40,11 +40,11 @@ msgstr "Código postal"
 
 #: apps/orders/models.py:15
 msgid "City"
-msgstr "ciudad"
+msgstr "Ciudad"
 
 #: apps/orders/models.py:16
 msgid "Created"
-msgstr "creado"
+msgstr "Creado"
 
 #: apps/orders/models.py:17
 msgid "Updated"
@@ -91,3 +91,9 @@ msgstr ""
 #: apps/orders/templates/orders/order/create.html:77
 msgid "Total"
 msgstr "Total"
+
+#: apps/orders/urls.py:11
+#, fuzzy
+#| msgid "Created"
+msgid "create/"
+msgstr "creado"

@@ -1,18 +1,19 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %}Your shopping cart{% endblock %}
+{% block title %}{% trans "Your shopping cart" %}{% endblock %}
 {% block content %}
-<h1 class="subtitle has-text-weight-medium">Your shopping cart</h1>
+<h1 class="subtitle has-text-weight-medium">{% trans "Your shopping cart" %}</h1>
 
 <div class="table-container">
   <table class="table is-hoverable">
     <thead>
       <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-        <th>Unit price</th>
-        <th>Price</th>
+        <th>{% trans "Product" %}</th>
+        <th>{% trans "Quantity" %}</th>
+        <th>{% trans "Remove" %}</th>
+        <th>{% trans "Unit price" %}</th>
+        <th>{% trans "Price" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -21,16 +22,16 @@
       <tr>
         <td>{{ product.name }}</td>
         <td>
-          <form action="{% url "cart:cart_add" product.id %}" method="post">
+          <form action="{% url 'cart:cart_add' product.id %}" method="post">
             <div class="select is-rounded is-small">{{ item.update_quantity_form.quantity }}</div>
             {{ item.update_quantity_form.override }}
-            <input type="submit" class="button is-primary is-light is-rounded is-small" value="Update">
+            <input type="submit" class="button is-primary is-light is-rounded is-small" value="{% trans 'Update' %}">
             {% csrf_token %}
             </form>
         </td>
         <td>
           <form action="{% url 'cart:cart_remove' product.id %}" method="post">
-            <input type="submit" class="button is-primary is-light is-small is-rounded" value="Remove">
+            <input type="submit" class="button is-primary is-light is-small is-rounded" value="{% trans 'Remove' %}">
             {% csrf_token %}
           </form>
         </td>
@@ -40,16 +41,16 @@
       {% endwith %}
       {% endfor %}
       <tr class="has-background-info-light">
-        <td>Total</td>
+        <td>{% trans "Total" %}</td>
         <td colspan="3"></td>
         <td>${{ cart.get_total_price }}</td>
       </tr>
       {% if cart.coupon %}
       <tr>
-        <th colspan="5">Coupon Apply</th>
+        <th colspan="5">{% trans "Coupon Apply" %}</th>
       </tr>
       <tr>
-        <td>Subtotal</td>
+        <td>{% trans "Sub-Total" %}</td>
         <td colspan="3"></td>
         <td>${{ cart.get_total_price|floatformat:2 }}</td>
       </tr>
@@ -59,7 +60,7 @@
         <td>-${{ cart.get_discount|floatformat:2 }}</td>
       </tr>
       <tr class="has-background-info-light">
-        <td>Total</td>
+        <td>{% trans "Total" %}</td>
         <td colspan="3"></td>
         <td>${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
       </tr>
@@ -67,7 +68,7 @@
     </tbody>
   </table>
 
-  <p class="subtitle has-text-weight-medium mt-6">Apply a coupon</p>
+  <p class="subtitle has-text-weight-medium mt-6">{% trans "Apply a coupon" %}</p>
 
   <form action="{% url 'coupons:apply' %}" method="post">
     {% csrf_token %}
@@ -76,17 +77,17 @@
         <label for="" class="label">{{ coupon_apply_form.code.label_tag }}</label>
       </div>
       <div class="control">
-        <input type="text" name="{{ coupon_apply_form.code.name }}" class="input" placeholder="Coupon"/>
+        <input type="text" name="{{ coupon_apply_form.code.name }}" class="input" placeholder="{% trans 'Coupon' %}"/>
       </div>
       <div class="control">
-        <input type="submit" class="button is-primary" value="Apply">
+        <input type="submit" class="button is-primary" value="{% trans 'Apply' %}">
       </div>
     </div>
   </form>
 </div>
 
 <p class="my-6">
-  <a href="{% url 'shop:product_list' %}" class="button is-primary">Continue shopping</a>
-  <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
+  <a href="{% url 'shop:product_list' %}" class="button is-primary">{% trans 'Continue shopping' %}</a>
+  <a href="{% url 'orders:order_create' %}" class="button">{% trans 'Checkout' %}</a>
 </p>
 {% endblock %}

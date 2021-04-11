@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!-- START NAV -->
 <nav class="navbar is-fixed-top navbar-bottom-box-shadow-size">
@@ -15,19 +16,32 @@
     <div id="navbarMenu" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item is-active is-size-6 has-text-primary">
-          Home
+          {% trans "Home" %}
         </a>
         <a class="navbar-item is-size-6 has-text-primary">
-          Categories
+          {% trans "Categories" %}
         </a>
-        <a class="navbar-item is-size-6 has-text-primary">
-          Products
-        </a>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link has-text-primary">
+            {% trans "Language" %}
+          </a>
+  
+          <div class="navbar-dropdown">
+            {% for language in languages %}
+            <a class="navbar-item {% if language.code == LANGUAGE_CODE %}is-active{% endif %}" href="/{{ language.code }}/">
+              {{ language.name_local }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
       </div>
       <div class="navbar-end">
         <div class=" navbar-item">
           <div class="control has-icons-left">
-            <input class="input is-rounded" type="email" placeholder="Search">
+            <input class="input is-rounded" type="email" placeholder="{% trans 'Search' %}">
             <span class="icon is-left">
               <i class="fa fa-search"></i>
             </span>

@@ -14,19 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.utils.translation import gettext_lazy as _
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('cart/', include('apps.cart.urls', namespace='cart')),
-    path('orders/', include('apps.orders.urls', namespace='orders')),
-    path('payment/', include('apps.payment.urls', namespace='payment')),
-    path('coupons/', include('apps.coupons.urls', namespace='coupons')),
+
+urlpatterns = i18n_patterns(
+    path(_('admin/'), admin.site.urls),
+    path(_('cart/'), include('apps.cart.urls', namespace='cart')),
+    path(_('orders/'), include('apps.orders.urls', namespace='orders')),
+    path(_('payment/'), include('apps.payment.urls', namespace='payment')),
+    path(_('coupons/'), include('apps.coupons.urls', namespace='coupons')),
     path('rosetta/', include('rosetta.urls')),
     path('', include('apps.shop.urls', namespace='shop')),
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

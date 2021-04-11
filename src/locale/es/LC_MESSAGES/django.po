@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-10 21:25-0500\n"
+"POT-Creation-Date: 2021-04-10 22:45-0500\n"
 "PO-Revision-Date: 2021-04-11 02:37+0000\n"
 "Last-Translator: b'  <yeison@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,27 +19,62 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.6\n"
 
-#: apps/cart/forms.py:11
-msgid "Quantity"
-msgstr "Cantidad"
-
 #: apps/coupons/forms.py:6
 msgid "Coupon"
 msgstr "Cupón"
+
+#: apps/payment/urls.py:9
+msgid "process/"
+msgstr "procesos/"
+
+#: apps/payment/urls.py:10
+msgid "done/"
+msgstr "hecho/"
+
+#: apps/payment/urls.py:11
+msgid "canceled/"
+msgstr "cancelado/"
 
 #: apps/shop/templates/shop/product/detail.html:28
 msgid "Add to cart"
 msgstr "Agregar al carrito"
 
+#: apps/shop/templates/shop/product/list.html:4
+msgid "Product List"
+msgstr "Lista de productos"
+
+#: apps/shop/templates/shop/product/list.html:10
+#: apps/templates/includes/layout/nav.html:22
+msgid "Categories"
+msgstr "Categorias"
+
+#: apps/shop/templates/shop/product/list.html:14
+msgid "All"
+msgstr ""
+
+#: apps/shop/templates/shop/product/list.html:26
+#, fuzzy
+#| msgid "Categories"
+msgid "Category"
+msgstr "Categorias"
+
+#: apps/shop/templates/shop/product/list.html:26
+msgid "Products"
+msgstr "Productos"
+
+#: apps/shop/templates/shop/product/list.html:40
+msgid "Price"
+msgstr "Precio"
+
 #: apps/templates/base.html:9
 msgid "Django Shop"
 msgstr "Django Shop"
 
-#: apps/templates/includes/layout/footer.html:8
+#: apps/templates/includes/layout/footer.html:9
 msgid "Your cart"
 msgstr "Tu carrito"
 
-#: apps/templates/includes/layout/footer.html:10
+#: apps/templates/includes/layout/footer.html:11
 #, python-format
 msgid ""
 "\n"
@@ -56,10 +91,47 @@ msgstr[1] ""
 "\n"
 "%(items)s productos, $%(total)s"
 
-#: shop/settings.py:122
+#: apps/templates/includes/layout/nav.html:19
+msgid "Home"
+msgstr "Inicio"
+
+#: apps/templates/includes/layout/nav.html:29
+msgid "Language"
+msgstr "Idioma"
+
+#: apps/templates/includes/layout/nav.html:44
+msgid "Search"
+msgstr "Buscar"
+
+#: shop/settings.py:132
 msgid "English"
 msgstr "Inglés"
 
-#: shop/settings.py:123
+#: shop/settings.py:133
 msgid "Spanish"
 msgstr "Español"
+
+#: shop/urls.py:25
+msgid "admin/"
+msgstr "administrador/"
+
+#: shop/urls.py:26
+msgid "cart/"
+msgstr "carrito/"
+
+#: shop/urls.py:27
+msgid "orders/"
+msgstr "pedidos/"
+
+#: shop/urls.py:28
+msgid "payment/"
+msgstr "pago/"
+
+#: shop/urls.py:29
+#, fuzzy
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "cupones/"
+
+#~ msgid "Quantity"
+#~ msgstr "Cantidad"

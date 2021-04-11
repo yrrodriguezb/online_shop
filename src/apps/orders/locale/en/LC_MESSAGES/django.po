@@ -71,3 +71,7 @@ msgstr ""
 #: apps/orders/templates/orders/order/create.html:77
 msgid "Total"
 msgstr ""
+
+#: apps/orders/urls.py:11
+msgid "create/"
+msgstr ""
