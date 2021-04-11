@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from os import environ
+from django.utils.translation import gettext_lazy as _
 import braintree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,13 +33,20 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+APPS_THIRD_PARTY = [
+    'rosetta',
+]
+
+APPS = [
     'apps.shop.apps.ShopConfig',
     'apps.cart.apps.CartConfig',
     'apps.orders.apps.OrdersConfig',
@@ -46,9 +54,13 @@ INSTALLED_APPS = [
     'apps.coupons.apps.CouponsConfig',
 ]
 
+INSTALLED_APPS = DJANGO_APPS + APPS_THIRD_PARTY + APPS
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,7 +126,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
+
+LOCALE_PATHS = (
+    BASE_DIR / 'locale/',
+)
 
 TIME_ZONE = 'UTC'
 

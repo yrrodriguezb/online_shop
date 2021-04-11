@@ -1,0 +1,73 @@
+#: apps/orders/models.py:10
+msgid "First name"
+msgstr ""
+
+#: apps/orders/models.py:11
+msgid "Last name"
+msgstr ""
+
+#: apps/orders/models.py:12
+msgid "E-mail"
+msgstr ""
+
+#: apps/orders/models.py:13
+msgid "Address"
+msgstr ""
+
+#: apps/orders/models.py:14
+msgid "Postal code"
+msgstr ""
+
+#: apps/orders/models.py:15
+msgid "City"
+msgstr ""
+
+#: apps/orders/models.py:16
+msgid "Created"
+msgstr ""
+
+#: apps/orders/models.py:17
+msgid "Updated"
+msgstr ""
+
+#: apps/orders/models.py:18
+msgid "Paid"
+msgstr ""
+
+#: apps/orders/models.py:19
+msgid "Braintree Id"
+msgstr ""
+
+#: apps/orders/models.py:20
+msgid "Cuopon"
+msgstr ""
+
+#: apps/orders/models.py:21
+msgid "Discount"
+msgstr ""
+
+#: apps/orders/templates/orders/order/create.html:3
+#: apps/orders/templates/orders/order/create.html:5
+msgid "Checkout"
+msgstr ""
+
+#: apps/orders/templates/orders/order/create.html:49
+msgid "Place order"
+msgstr ""
+
+#: apps/orders/templates/orders/order/create.html:56
+msgid "Your order"
+msgstr ""
+
+#: apps/orders/templates/orders/order/create.html:68
+#, python-format
+msgid ""
+"\n"
+"            \"%(code)s\" (%(discount)s%% off)\n"
+"            "
+msgstr ""
+
+#: apps/orders/templates/orders/order/create.html:76
+#: apps/orders/templates/orders/order/create.html:77
+msgid "Total"
+msgstr ""
