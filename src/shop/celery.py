@@ -2,7 +2,7 @@ import os
 from celery import Celery
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shop.settings.production')
 
 app = Celery('shop')
 app.config_from_object('django.conf:settings', namespace='CELERY')

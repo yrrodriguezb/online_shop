@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: django
+    hostname: django
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    env_file: 
+      - ./.envs/.prod/.django
+      - ./.envs/.prod/.mysql
+    volumes: 
+      - ./src:/app/src:rw
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    
+  db:
+    container_name: mysql
+    hostname: mysql
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    env_file: 
+      - ./.envs/.prod/.mysql
+    volumes: 
+      - ./dbdata:/var/lib/mysql:rw
+    ports: 
+      - '3306:3306'

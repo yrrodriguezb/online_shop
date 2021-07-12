@@ -134,3 +134,6 @@ dmypy.json
 
 # images project
 products
+
+# MySQL Volume
+dbdata

@@ -33,6 +33,38 @@ Proyecto con **[Django](https://www.djangoproject.com/)**. para construir una ti
 
 **NOTA:** Tener en cuenta que si el contenedor es apagado, los datos en la base de datos se eliminarán, ya que no son persistentes. Para este caso, es necesario manejar los **[Volumenes](https://docs.docker.com/storage/volumes/)** en docker. Ya que este es un ejemplo muy sencillo para manejar contenedores de docker en una aplicación de **[Django](https://www.djangoproject.com/)**.
 
+
+### Corriendo la aplicación con multiples contenedores (Django - MySQL)
+
+1. Crear la imagen de docker
+    ``` bash
+    # Crear los servicios con docker compose
+    docker-compose up           
+    ```
+
+2. Ejecutar las migraciones de Django
+     ``` bash
+    # ejecjutar comando migrate
+
+    docker-compose run --rm web python src/manage.py migrate      
+    ``` 
+
+3. Conectarnos al contenedor con el fin de crear un super usuario
+    ``` bash
+    # Ejecutar comando createsuperuser
+
+    docker-compose run --rm web python src/manage.py createsuperuser
+    ```
+
+4. Servir archivos estaticos
+    ``` bash
+    # Ejecutar comando collectstatic
+
+    docker-compose run --rm web python src/manage.py collectstatic 
+    ```
+
+5. Finalmente abrir un navegador en la dirección **[localhost:8000](http://localhost:8000/)**    
+
 ### Configuración del entorno virtual
 
 1.  Crear entorno virtual
@@ -60,6 +92,16 @@ Proyecto con **[Django](https://www.djangoproject.com/)**. para construir una ti
     # Ejecutar el comando pip
 
     pip install -r requirements.txt
+    ```
+
+4. Configurar variable de entorno
+    ```bash
+    # Nombre variable DJANGO_SETTINGS_MODULE
+    # local
+    export DJANGO_SETTINGS_MODULE=shop.settings.local
+
+    # producción
+    export DJANGO_SETTINGS_MODULE=shop.settings.production
     ```
 
 ## Ejecutar la applicación

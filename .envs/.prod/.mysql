@@ -1,0 +1,6 @@
+# mysql
+MYSQL_DATABASE=djangodb
+MYSQL_USER=django
+MYSQL_PASSWORD=pass
+MYSQL_ROOT_PASSWORD=pass
+MYSQL_HOST=db
