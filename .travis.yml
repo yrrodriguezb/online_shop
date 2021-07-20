@@ -1,0 +1,49 @@
+language: python
+python:
+  - 3.8
+cache: pip
+before_install:
+  - python -m pip install --upgrade pip
+branches:
+  except:
+    - experimental
+    - desarrollo
+  only:
+    - main
+    - stable
+before_deploy:
+  - git config --local user.name $GIT_USER_NAME
+  - git config --local user.email $GIT_USER_EMAIL
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - export TRAVIS_COMMIT="CI-CD-$(git log --format=%h -1)"
+  - git tag $TRAVIS_TAG $TRAVIS_COMMIT
+deploy:
+  provider: releases
+  tag_name: $TRAVIS_TAG
+  target_commitish: $TRAVIS_COMMIT
+  api_key: 
+    secure: $GITHUB_TOKEN
+  file_glob: true
+  file: $TRAVIS_TAG.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: main
+    repo: yrrodriguezb/online_shop
+  draft: true
+  overwrite: true
+  prerelease: true
+env:
+  - DJANGO_SETTINGS_MODULE=shop.settings.local
+git:
+  depth: 2 # Dos versiones del repo
+install:
+  - pip install -r requirements.txt
+notifications:
+  email:
+    recipients:
+      - $EMAIL_NOTIFICATIONS
+    on_success: never
+    on_failure: always
+script:
+  - python src/manage.py test apps.shop
