@@ -21,6 +21,16 @@ class Category(TranslatableModel):
     def __str__(self):
         return self.name
 
+    def __eq__(self, other):
+        if isinstance(other, Category):
+            return (
+                self.id == self.id and
+                self.name == other.name and 
+                self.slug == other.slug
+            )
+        
+        return False
+
 
 class Product(TranslatableModel):
     translations = TranslatedFields(
